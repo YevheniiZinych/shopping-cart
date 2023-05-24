@@ -1,8 +1,10 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import { Counter } from 'components/SharedLayout/SharedLayout.styled';
 
-const SharedLayout = () => {
+const SharedLayout = ({ size }) => {
   return (
     <div>
       <header>
@@ -19,6 +21,7 @@ const SharedLayout = () => {
             </li>
             <li>
               <NavLink to="/cart">SHOPPING CART</NavLink>
+              <Counter>{size}</Counter>
             </li>
           </ul>
         </nav>
@@ -26,6 +29,7 @@ const SharedLayout = () => {
       <Suspense fallback={<div>Page is loading...</div>}>
         <Outlet />
       </Suspense>
+      <ToastContainer />
     </div>
   );
 };

@@ -7,9 +7,9 @@ import McDonald from 'components/McDonald/McDonald';
 import KFC from 'components/KFC/KFC';
 import Mafia from 'components/Mafia/Mafia';
 
-const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
-const Shop = lazy(() => import('./pages/Shop/Shop'));
-const ShoppingCart = lazy(() => import('./pages/ShoppingCart/ShoppingCart'));
+const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
+const Shop = lazy(() => import('../pages/Shop/Shop'));
+const ShoppingCart = lazy(() => import('../pages/ShoppingCart/ShoppingCart'));
 
 export const App = () => {
   const [cart, setCart] = useState([]);
@@ -46,11 +46,13 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<SharedLayout size={cart.length} />}>
           <Route index element={<HomePage />} />
+
           <Route path="shop" element={<Shop />}>
             <Route path="mc" element={<McDonald handleClick={handleClick} />} />
             <Route path="kfc" element={<KFC />} />
             <Route path="mafia" element={<Mafia />} />
           </Route>
+
           <Route
             path="cart"
             element={

@@ -1,36 +1,55 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
-import { Counter } from 'components/SharedLayout/SharedLayout.styled';
+import {
+  Counter,
+  NavContainer,
+  NavList,
+  LogoWrapper,
+  CartWrapper,
+  StyledLink,
+} from 'components/SharedLayout/SharedLayout.styled';
+import logo from '../../img/Flash-Logo.png';
 
 const SharedLayout = ({ size }) => {
   return (
-    <div>
+    <>
       <header>
-        <div>
-          <span>BestDelivery</span>
-        </div>
-        <nav>
-          <ul>
-            <li>
-              <NavLink to="/">HOME</NavLink>
-            </li>
-            <li>
-              <NavLink to="/shop">SHOP</NavLink>
-            </li>
-            <li>
-              <NavLink to="/cart">SHOPPING CART</NavLink>
-              <Counter>{size}</Counter>
-            </li>
-          </ul>
-        </nav>
+        <NavContainer>
+          <LogoWrapper>
+            <img
+              src={logo}
+              alt="logo"
+              style={{
+                height: 30,
+              }}
+            />
+            <span>FleshDelivery</span>
+          </LogoWrapper>
+          <nav>
+            <NavList>
+              <li>
+                <StyledLink to="/">HOME</StyledLink>
+              </li>
+              <li>
+                <StyledLink to="/shop">SHOP</StyledLink>
+              </li>
+              <li>
+                <CartWrapper>
+                  <StyledLink to="/cart">SHOPPING CART</StyledLink>
+                  <Counter>{size}</Counter>
+                </CartWrapper>
+              </li>
+            </NavList>
+          </nav>
+        </NavContainer>
       </header>
+
       <Suspense fallback={<div>Page is loading...</div>}>
         <Outlet />
       </Suspense>
       <ToastContainer />
-    </div>
+    </>
   );
 };
 

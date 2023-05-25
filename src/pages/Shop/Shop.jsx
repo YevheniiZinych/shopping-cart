@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import { Outlet, NavLink } from 'react-router-dom';
-
+import { ShopContainer } from './Shop.styled';
 const shops = [
   { id: '1', name: 'McDonald`s', link: 'mc' },
   { id: '2', name: 'KFC', link: 'kfc' },
@@ -9,23 +9,24 @@ const shops = [
 
 const Shop = () => {
   return (
-    <div>
+    <>
       <main>
-        <ul>
-          {shops?.map(({ id, name, link }) => {
-            return (
-              <li key={id}>
-                <NavLink to={link}>{name}</NavLink>
-              </li>
-            );
-          })}
-        </ul>
-
-        <Suspense fallback={<div>Page is loading...</div>}>
-          <Outlet />
-        </Suspense>
+        <ShopContainer>
+          <ul>
+            {shops?.map(({ id, name, link }) => {
+              return (
+                <li key={id}>
+                  <NavLink to={link}>{name}</NavLink>
+                </li>
+              );
+            })}
+          </ul>
+        </ShopContainer>
       </main>
-    </div>
+      <Suspense fallback={<div>Page is loading...</div>}>
+        <Outlet />
+      </Suspense>
+    </>
   );
 };
 

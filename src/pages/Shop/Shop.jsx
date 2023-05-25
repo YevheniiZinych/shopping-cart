@@ -1,6 +1,7 @@
 import { Suspense } from 'react';
-import { Outlet, NavLink } from 'react-router-dom';
-import { ShopContainer } from './Shop.styled';
+import { Outlet } from 'react-router-dom';
+import { ShopContainer, Container, ShopList, ShopLink } from './Shop.styled';
+
 const shops = [
   { id: '1', name: 'McDonald`s', link: 'mc' },
   { id: '2', name: 'KFC', link: 'kfc' },
@@ -9,24 +10,24 @@ const shops = [
 
 const Shop = () => {
   return (
-    <>
+    <Container>
       <main>
         <ShopContainer>
-          <ul>
+          <ShopList>
             {shops?.map(({ id, name, link }) => {
               return (
                 <li key={id}>
-                  <NavLink to={link}>{name}</NavLink>
+                  <ShopLink to={link}>{name}</ShopLink>
                 </li>
               );
             })}
-          </ul>
+          </ShopList>
         </ShopContainer>
       </main>
       <Suspense fallback={<div>Page is loading...</div>}>
         <Outlet />
       </Suspense>
-    </>
+    </Container>
   );
 };
 

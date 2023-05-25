@@ -9,7 +9,7 @@ const ProductCart = ({ product, handleClick }) => {
         </figure>
       </article>
       <p>Price: {price}</p>
-      <button onClick={() => handleClick(product)}>Add to card</button>
+      <button onClick={() => handleClick(product)}>Add to order</button>
     </li>
   );
 };

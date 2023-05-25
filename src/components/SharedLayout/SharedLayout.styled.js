@@ -20,14 +20,14 @@ export const NavContainer = styled.div`
   height: 50px;
   max-width: 100vw;
   gap: 20px;
-  margin-bottom: 20px;
   background-color: #d6d618;
 `;
+
+export const Inner = styled.div``;
 
 export const NavList = styled.ul`
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 20px;
 `;
 
@@ -39,7 +39,6 @@ export const LogoWrapper = styled.div`
 
 export const CartWrapper = styled.div`
   display: flex;
-  margin-left: 600px;
 `;
 
 export const StyledLink = styled(NavLink)`

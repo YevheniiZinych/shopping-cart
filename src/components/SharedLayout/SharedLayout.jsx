@@ -34,6 +34,7 @@ const SharedLayout = ({ size }) => {
               <li>
                 <StyledLink to="/shop">SHOP</StyledLink>
               </li>
+
               <li>
                 <CartWrapper>
                   <StyledLink to="/cart">SHOPPING CART</StyledLink>

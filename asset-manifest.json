@@ -1,21 +1,23 @@
 {
   "files": {
     "main.css": "/shopping-cart/static/css/main.7acaea2f.css",
-    "main.js": "/shopping-cart/static/js/main.093cef78.js",
-    "static/js/812.de0959e1.chunk.js": "/shopping-cart/static/js/812.de0959e1.chunk.js",
-    "static/js/436.405a18c0.chunk.js": "/shopping-cart/static/js/436.405a18c0.chunk.js",
-    "static/js/598.f9c4ab2e.chunk.js": "/shopping-cart/static/js/598.f9c4ab2e.chunk.js",
+    "main.js": "/shopping-cart/static/js/main.156a37a7.js",
+    "static/js/812.f5760160.chunk.js": "/shopping-cart/static/js/812.f5760160.chunk.js",
+    "static/js/436.29d04319.chunk.js": "/shopping-cart/static/js/436.29d04319.chunk.js",
+    "static/js/23.ec41d929.chunk.js": "/shopping-cart/static/js/23.ec41d929.chunk.js",
+    "static/js/504.7e2573c3.chunk.js": "/shopping-cart/static/js/504.7e2573c3.chunk.js",
     "static/media/Flash-Logo.png": "/shopping-cart/static/media/Flash-Logo.086e6d31bba815a3a519.png",
     "static/media/background-img.jpeg": "/shopping-cart/static/media/background-img.4cd9f47d8e3cbd14e6ed.jpeg",
     "index.html": "/shopping-cart/index.html",
     "main.7acaea2f.css.map": "/shopping-cart/static/css/main.7acaea2f.css.map",
-    "main.093cef78.js.map": "/shopping-cart/static/js/main.093cef78.js.map",
-    "812.de0959e1.chunk.js.map": "/shopping-cart/static/js/812.de0959e1.chunk.js.map",
-    "436.405a18c0.chunk.js.map": "/shopping-cart/static/js/436.405a18c0.chunk.js.map",
-    "598.f9c4ab2e.chunk.js.map": "/shopping-cart/static/js/598.f9c4ab2e.chunk.js.map"
+    "main.156a37a7.js.map": "/shopping-cart/static/js/main.156a37a7.js.map",
+    "812.f5760160.chunk.js.map": "/shopping-cart/static/js/812.f5760160.chunk.js.map",
+    "436.29d04319.chunk.js.map": "/shopping-cart/static/js/436.29d04319.chunk.js.map",
+    "23.ec41d929.chunk.js.map": "/shopping-cart/static/js/23.ec41d929.chunk.js.map",
+    "504.7e2573c3.chunk.js.map": "/shopping-cart/static/js/504.7e2573c3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7acaea2f.css",
-    "static/js/main.093cef78.js"
+    "static/js/main.156a37a7.js"
   ]
 }

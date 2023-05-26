@@ -1,15 +1,21 @@
-import { CartItem, CartContainer } from './OrderItem.styled';
+import {
+  CartItem,
+  CartContainer,
+  ImgWrapper,
+  BtnWrapper,
+  RemoveBtn,
+} from './OrderItem.styled';
 
 const OrderItem = ({ item, handleRemove, handleChange }) => {
   const { id, img, name, price, amount } = item;
   return (
     <CartContainer>
       <CartItem>
-        <div>
+        <ImgWrapper>
           <img src={img} alt={name} loading="lazy" width={150} />
           <p>{name}</p>
-        </div>
-        <div>
+        </ImgWrapper>
+        <BtnWrapper>
           <button onClick={() => handleChange(item, +1)} type="button">
             +
           </button>
@@ -17,12 +23,18 @@ const OrderItem = ({ item, handleRemove, handleChange }) => {
           <button onClick={() => handleChange(item, -1)} type="button">
             -
           </button>
-        </div>
+        </BtnWrapper>
         <div>
-          <p>Price: {price}</p>
-          <button onClick={() => handleRemove(id)} type="button">
+          <p
+            style={{
+              color: 'yellow',
+            }}
+          >
+            Price: {price}
+          </p>
+          <RemoveBtn onClick={() => handleRemove(id)} type="button">
             Remove
-          </button>
+          </RemoveBtn>
         </div>
       </CartItem>
     </CartContainer>

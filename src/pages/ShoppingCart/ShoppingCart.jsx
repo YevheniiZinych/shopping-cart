@@ -1,6 +1,13 @@
 import { useState, useEffect } from 'react';
 import OrderItem from 'components/OrderItem/OrderItem';
-import { Container } from './ShoppingCart.styled';
+import {
+  Container,
+  ShoppingContainer,
+  ShoppingList,
+  Wrapper,
+  ShopInner,
+} from './ShoppingCart.styled';
+import { OrderForm } from 'components/OrderForm/OrderForm';
 
 const ShoppingCart = ({ cart, setCart, handleChange }) => {
   const [price, setPrice] = useState(0);
@@ -27,20 +34,25 @@ const ShoppingCart = ({ cart, setCart, handleChange }) => {
   return (
     <Container>
       <section>
-        <ul>
-          {cart?.map(item => {
-            return (
-              <OrderItem
-                key={item.id}
-                item={item}
-                handleRemove={handleRemove}
-                handleChange={handleChange}
-              />
-            );
-          })}
-        </ul>
-
-        <span>Total prise: {price}</span>
+        <ShoppingContainer>
+          <Wrapper>
+            <OrderForm cart={cart} price={price} />
+            <ShopInner>
+              <ShoppingList>
+                {cart?.map(item => {
+                  return (
+                    <OrderItem
+                      key={item.id}
+                      item={item}
+                      handleRemove={handleRemove}
+                      handleChange={handleChange}
+                    />
+                  );
+                })}
+              </ShoppingList>
+            </ShopInner>
+          </Wrapper>
+        </ShoppingContainer>
       </section>
     </Container>
   );

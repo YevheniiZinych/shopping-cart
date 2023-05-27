@@ -35,6 +35,7 @@ export const App = () => {
     });
 
     const newCard = cart;
+
     newCard[ind].amount += count;
 
     if (newCard[ind].amount === 0) newCard[ind].amount = 1;
@@ -52,7 +53,10 @@ export const App = () => {
             path="shop"
             element={<Shop setShops={setShops} shops={shops} />}
           >
-            <Route path="mc" element={<McDonald handleClick={handleClick} />} />
+            <Route
+              path="mc"
+              element={<McDonald handleClick={handleClick} shops={shops} />}
+            />
             <Route path="kfc" element={<KFC />} />
             <Route path="mafia" element={<Mafia />} />
           </Route>

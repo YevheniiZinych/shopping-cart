@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { StyledBox, OrderTextField } from './OrderForm.mui.styled';
 import { OrderContainer } from './OrderForm.styled';
+import { addOrder } from 'apiService/apiService';
 
 export const OrderForm = ({ cart, price: totalPrice }) => {
   const [name, setName] = useState('');
@@ -23,21 +24,26 @@ export const OrderForm = ({ cart, price: totalPrice }) => {
     }
   };
 
-  const handleOrder = e => {
+  const handleOrder = async e => {
     e.preventDefault();
 
     const order = {
-      cart,
-      totalPrice,
+      cart: {
+        id: cart._id,
+        name: cart.name,
+        price: cart.price,
+        amount: cart.amount,
+      },
       data: {
         name,
         email,
         phone,
         address,
       },
+      totalPrice,
     };
 
-    console.log(order);
+    addOrder(order);
   };
 
   return (

@@ -1,5 +1,5 @@
 // import { useState, useMemo } from 'react';
-// import { GoogleMap, Marker } from 'react-google-maps';
+// import { GoogleMap, Marker, useLoadScript } from '@react-google-maps/api';
 // import usePlacesAutocomplete, {
 //   getGeocode,
 //   getLatLng,
@@ -12,6 +12,10 @@
 //   ComboboxOption,
 // } from '@reach/combobox';
 // import '@reach/combobox/styles.css';
+
+const API_KEY = process.env.REACT_APP_GOOGLE_MAP_API_KEY;
+
+console.log(API_KEY);
 
 export const GoogleAddress = () => {
   return <div></div>;

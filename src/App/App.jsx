@@ -13,6 +13,7 @@ const ShoppingCart = lazy(() => import('../pages/ShoppingCart/ShoppingCart'));
 
 export const App = () => {
   const [cart, setCart] = useState([]);
+  const [shops, setShops] = useState([]);
 
   const handleClick = item => {
     let isPresent = false;
@@ -47,7 +48,10 @@ export const App = () => {
         <Route path="/" element={<SharedLayout size={cart.length} />}>
           <Route index element={<HomePage />} />
 
-          <Route path="shop" element={<Shop />}>
+          <Route
+            path="shop"
+            element={<Shop setShops={setShops} shops={shops} />}
+          >
             <Route path="mc" element={<McDonald handleClick={handleClick} />} />
             <Route path="kfc" element={<KFC />} />
             <Route path="mafia" element={<Mafia />} />

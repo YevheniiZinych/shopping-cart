@@ -1,23 +1,24 @@
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import { ShopContainer, Container, ShopList, ShopLink } from './Shop.styled';
+import { getAllShops } from 'apiService/apiService';
 
-const shops = [
-  { id: '1', name: 'McDonald`s', link: 'mc' },
-  { id: '2', name: 'KFC', link: 'kfc' },
-  { id: '3', name: 'Mafia', link: 'mafia' },
-];
+const Shop = ({ setShops, shops }) => {
+  useEffect(() => {
+    getAllShops()
+      .then(({ data }) => setShops(data))
+      .catch(err => console.log(err));
+  }, [setShops]);
 
-const Shop = () => {
   return (
     <Container>
       <main>
         <ShopContainer>
           <ShopList>
-            {shops?.map(({ id, name, link }) => {
+            {shops?.map(({ _id: id, restaurant, link }) => {
               return (
                 <li key={id}>
-                  <ShopLink to={link}>{name}</ShopLink>
+                  <ShopLink to={link}>{restaurant}</ShopLink>
                 </li>
               );
             })}

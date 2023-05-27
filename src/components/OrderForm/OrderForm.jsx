@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { StyledBox, OrderTextField } from './OrderForm.mui.styled';
 import { OrderContainer } from './OrderForm.styled';
 
-export const OrderForm = ({ cart, price }) => {
+export const OrderForm = ({ cart, price: totalPrice }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -28,7 +28,7 @@ export const OrderForm = ({ cart, price }) => {
 
     const order = {
       cart,
-      price,
+      totalPrice,
       data: {
         name,
         email,
@@ -81,7 +81,7 @@ export const OrderForm = ({ cart, price }) => {
           onChange={handleChange}
         />
         <button type="submit">Make order</button>
-        <span>Total prise: {price}</span>
+        <span>Total prise: {totalPrice}</span>
       </StyledBox>
     </OrderContainer>
   );

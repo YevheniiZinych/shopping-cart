@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
-export const McContainer = styled.div`
+export const ProductContainer = styled.div`
   position: absolute;
   top: 10px;
   left: 30%;
   width: 70%;
 `;
 
-export const McList = styled.ul`
+export const ProductList = styled.ul`
   display: flex;
   justify-content: start;
 

@@ -1,11 +1,11 @@
 import ProductCart from 'components/ProductCart/ProductCart';
 import products from 'products';
-import { McContainer, McList } from './McDonald.styled';
+import { ProductContainer, ProductList } from './McDonald.styled';
 
 const McDonald = ({ handleClick }) => {
   return (
-    <McContainer>
-      <McList>
+    <ProductContainer>
+      <ProductList>
         {products?.map(product => (
           <ProductCart
             key={product.id}
@@ -13,8 +13,8 @@ const McDonald = ({ handleClick }) => {
             handleClick={handleClick}
           />
         ))}
-      </McList>
-    </McContainer>
+      </ProductList>
+    </ProductContainer>
   );
 };
 

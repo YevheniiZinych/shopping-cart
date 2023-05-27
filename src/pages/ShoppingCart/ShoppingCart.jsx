@@ -8,6 +8,7 @@ import {
   ShopInner,
 } from './ShoppingCart.styled';
 import { OrderForm } from 'components/OrderForm/OrderForm';
+import { GoogleAddress } from 'components/GoogleAddress/GoogleAddress';
 
 const ShoppingCart = ({ cart, setCart, handleChange }) => {
   const [price, setPrice] = useState(0);
@@ -36,6 +37,7 @@ const ShoppingCart = ({ cart, setCart, handleChange }) => {
       <section>
         <ShoppingContainer>
           <Wrapper>
+            <GoogleAddress />
             <OrderForm cart={cart} price={price} />
             <ShopInner>
               <ShoppingList>

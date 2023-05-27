@@ -1,7 +1,9 @@
+import { AddBtn, ProductItem } from './ProductCart.styled';
+
 const ProductCart = ({ product, handleClick }) => {
   const { img, name, price } = product;
   return (
-    <li>
+    <ProductItem>
       <article
         style={{
           marginTop: 20,
@@ -43,8 +45,8 @@ const ProductCart = ({ product, handleClick }) => {
       >
         Price: {price}
       </p>
-      <button onClick={() => handleClick(product)}>Add to order</button>
-    </li>
+      <AddBtn onClick={() => handleClick(product)}>Add to order</AddBtn>
+    </ProductItem>
   );
 };
 

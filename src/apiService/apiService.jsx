@@ -11,3 +11,12 @@ export const getAllShops = async () => {
     console.log(error.message);
   }
 };
+
+export const addOrder = async order => {
+  try {
+    const data = axios.post('/api/order', order);
+    return data;
+  } catch (error) {
+    console.log(error.message);
+  }
+};

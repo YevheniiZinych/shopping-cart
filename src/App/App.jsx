@@ -18,7 +18,7 @@ export const App = () => {
   const handleClick = item => {
     let isPresent = false;
     cart.forEach(product => {
-      if (item.id === product.id) isPresent = true;
+      if (item._id === product._id) isPresent = true;
     });
 
     if (isPresent) {
@@ -42,6 +42,7 @@ export const App = () => {
 
     setCart([...newCard]);
   };
+
   return (
     <div>
       <GlobalStyle />
@@ -57,8 +58,14 @@ export const App = () => {
               path="mc"
               element={<McDonald handleClick={handleClick} shops={shops} />}
             />
-            <Route path="kfc" element={<KFC />} />
-            <Route path="mafia" element={<Mafia />} />
+            <Route
+              path="kfc"
+              element={<KFC handleClick={handleClick} shops={shops} />}
+            />
+            <Route
+              path="mafia"
+              element={<Mafia handleClick={handleClick} shops={shops} />}
+            />
           </Route>
 
           <Route

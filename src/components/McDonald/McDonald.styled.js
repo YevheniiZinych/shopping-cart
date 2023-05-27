@@ -20,7 +20,9 @@ export const ProductList = styled.ul`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
+
+    text-align: center;
 
     height: 250px;
     width: 200px;
@@ -35,7 +37,7 @@ export const ProductList = styled.ul`
 
   & li > button {
     position: absolute;
-    bottom: 0;
+    bottom: 3px;
     border: 2px solid #d6d618;
     border-radius: 3rem;
     color: #d6d618;
@@ -44,7 +46,7 @@ export const ProductList = styled.ul`
     overflow: hidden;
     padding: 0.5em;
     margin-top: 10px;
-    position: relative;
+    /* position: relative; */
     text-decoration: none;
     transition: 0.2s transform ease-in-out;
     will-change: transform;

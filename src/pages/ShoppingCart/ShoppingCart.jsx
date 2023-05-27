@@ -44,7 +44,7 @@ const ShoppingCart = ({ cart, setCart, handleChange }) => {
                 {cart?.map(item => {
                   return (
                     <OrderItem
-                      key={item.id}
+                      key={item._id}
                       item={item}
                       handleRemove={handleRemove}
                       handleChange={handleChange}

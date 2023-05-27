@@ -6,11 +6,12 @@ export const ShopContainer = styled.div`
   display: flex;
   max-width: 1220px;
   padding: 0 10;
-  height: calc(100vh - 45px);
+  height: calc(100vh - 50px);
   margin: 0 auto;
 `;
 
 export const Container = styled.div`
+  display: flex;
   position: relative;
   background-image: url(${img});
   background-repeat: no-repeat;

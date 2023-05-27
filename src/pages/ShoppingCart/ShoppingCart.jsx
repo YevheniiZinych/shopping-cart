@@ -23,8 +23,8 @@ const ShoppingCart = ({ cart, setCart, handleChange }) => {
     setPrice(total);
   };
 
-  const handleRemove = id => {
-    const filteredCard = cart.filter(item => item.id !== id);
+  const handleRemove = _id => {
+    const filteredCard = cart.filter(item => item._id !== _id);
     setCart(filteredCard);
   };
 

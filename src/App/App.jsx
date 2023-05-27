@@ -31,7 +31,7 @@ export const App = () => {
   const handleChange = (item, count) => {
     let ind = 0;
     cart.forEach((data, index) => {
-      if (data.id === item.id) ind = index;
+      if (data._id === item._id) ind = index;
     });
 
     const newCard = cart;

@@ -1,45 +1,63 @@
 import styled from 'styled-components';
 
-export const CartContainer = styled.div``;
-
 export const CartItem = styled.li`
-  /* display: flex;
+  font-size: 15px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  margin-bottom: 15px;
+  justify-content: start;
 
-  min-height: 150px;
+  height: 250px;
+  width: 200px;
 
   background: rgba(255, 255, 255, 0.29);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(2.6px);
   -webkit-backdrop-filter: blur(2.6px);
-  border: 1px solid rgba(255, 255, 255, 0.54); */
+  border: 1px solid rgba(255, 255, 255, 0.54);
 `;
 
 export const ImgWrapper = styled.div`
   text-align: center;
-  color: yellow;
+  color: #fff;
   width: 150px;
   margin-bottom: 10px;
 `;
 
 export const BtnWrapper = styled.div`
+  position: absolute;
+  bottom: 45px;
   margin-bottom: 5px;
   & button {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     border-radius: 50%;
   }
 `;
 
 export const RemoveBtn = styled.button`
+  position: absolute;
+  top: 8px;
+  right: 8px;
   border: none;
-  margin-top: 10px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  background-color: transparent;
+  color: #fff;
   transition: all 0.3s linear;
 
   &:hover,
   &:focus {
     background-color: red;
   }
+`;
+
+export const Price = styled.p`
+  position: absolute;
+  bottom: 15px;
+
+  font-size: 20px;
+  color: #fff;
 `;

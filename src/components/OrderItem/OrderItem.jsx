@@ -1,43 +1,56 @@
 import {
   CartItem,
-  CartContainer,
   ImgWrapper,
   BtnWrapper,
   RemoveBtn,
+  Price,
 } from './OrderItem.styled';
 
 const OrderItem = ({ item, handleRemove, handleChange }) => {
-  const { id, img, name, price, amount } = item;
+  console.log(item);
+  const { _id, img, name, price, amount } = item;
   return (
-    <CartContainer>
-      <CartItem>
-        <ImgWrapper>
-          <img src={img} alt={name} loading="lazy" width={150} />
-          <p>{name}</p>
-        </ImgWrapper>
-        <BtnWrapper>
-          <button onClick={() => handleChange(item, +1)} type="button">
-            +
-          </button>
-          <button type="button">{amount}</button>
-          <button onClick={() => handleChange(item, -1)} type="button">
-            -
-          </button>
-        </BtnWrapper>
-        <div>
-          <p
+    <CartItem>
+      <ImgWrapper>
+        <figure
+          style={{
+            width: 125,
+            margin: 13,
+          }}
+        >
+          <img
+            src={img}
+            alt={name}
+            loading="lazy"
             style={{
-              color: 'yellow',
+              height: 110,
+              width: '100%',
+            }}
+          />
+          <figcaption
+            style={{
+              fontSize: 16,
+              color: '#fff',
             }}
           >
-            Price: {price}
-          </p>
-          <RemoveBtn onClick={() => handleRemove(id)} type="button">
-            Remove
-          </RemoveBtn>
-        </div>
-      </CartItem>
-    </CartContainer>
+            {name}
+          </figcaption>
+        </figure>
+      </ImgWrapper>
+      <BtnWrapper>
+        <button onClick={() => handleChange(item, +1)} type="button">
+          +
+        </button>
+        <button type="button">{amount}</button>
+        <button onClick={() => handleChange(item, -1)} type="button">
+          -
+        </button>
+      </BtnWrapper>
+      <Price>Price: {price}</Price>
+      <RemoveBtn onClick={() => handleRemove(_id)} type="button">
+        X
+      </RemoveBtn>
+    </CartItem>
   );
 };
 export default OrderItem;

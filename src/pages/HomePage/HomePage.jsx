@@ -6,7 +6,9 @@ const HomePage = () => {
       <HomeContainer>
         <Title>Welcome to the FLASH delivery</Title>
         <div>
-          <StyledLink to="shop"> Lets start</StyledLink>
+          <StyledLink to="shop">
+            <span>Lets start</span>
+          </StyledLink>
         </div>
       </HomeContainer>
     </main>

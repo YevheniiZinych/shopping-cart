@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'http://localhost:3030';
+axios.defaults.baseURL = 'https://shopping-carg-api.onrender.com';
 
 export const getAllShops = async () => {
   try {

@@ -1,16 +1,41 @@
 import styled from 'styled-components';
 
-export const OrderContainer = styled.div``;
-
-export const Form = styled.form`
+export const OrderBtn = styled.button`
+  position: relative;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  color: #fff;
+  width: 150px;
+  height: 50px;
+  margin-top: 20px;
+  overflow: hidden;
+  border: 2px solid #fff;
+  transition: all 0.3s ease-in-out;
 
-  background: rgba(255, 255, 255, 0.29);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(2.6px);
-  border: 1px solid rgba(255, 255, 255, 0.54);
+  &::before {
+    content: ' ';
+    position: absolute;
+    display: block;
+    height: 100px;
+    width: 30px;
+    background-color: rgb(246, 243, 21);
+    transform: rotate(35deg);
+    left: -60px;
+    top: -30px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  & span {
+    z-index: 2;
+  }
+
+  &:hover::before {
+    left: 200px;
+  }
+
+  &:hover {
+    border: 1px solid rgba(255, 255, 255, 1);
+  }
 `;

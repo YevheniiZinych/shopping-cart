@@ -1,13 +1,26 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import toast from 'react-hot-toast';
 import { StyledBox, OrderTextField } from './OrderForm.mui.styled';
-import { OrderContainer } from './OrderForm.styled';
 import { addOrder } from 'apiService/apiService';
+import { OrderBtn } from './OrderForm.styled';
 
-export const OrderForm = ({ cart, price: totalPrice }) => {
+export const OrderForm = ({ cart, price: totalPrice, place, setCart }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [address, setAddress] = useState('');
+
+  useEffect(() => {
+    setAddress(place);
+  }, [place]);
+
+  const formReset = () => {
+    setName('');
+    setEmail('');
+    setPhone('');
+    setAddress('');
+    setCart([]);
+  };
 
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
@@ -43,11 +56,17 @@ export const OrderForm = ({ cart, price: totalPrice }) => {
       totalPrice,
     };
 
-    addOrder(order);
+    if (name && email && phone && address) {
+      addOrder(order);
+      formReset();
+      toast.success('Your order was sent');
+    } else {
+      toast.error('Complete oll field for send order');
+    }
   };
 
   return (
-    <OrderContainer>
+    <div>
       <StyledBox
         onSubmit={handleOrder}
         component="form"
@@ -55,14 +74,17 @@ export const OrderForm = ({ cart, price: totalPrice }) => {
         autoComplete="off"
       >
         <OrderTextField
+          required
           name="address"
           type="text"
+          value={address}
           onChange={handleChange}
           id="outlined-basic"
           label="Address"
           variant="outlined"
         />
         <OrderTextField
+          required
           id="outlined-basic"
           label="Name"
           variant="outlined"
@@ -71,6 +93,7 @@ export const OrderForm = ({ cart, price: totalPrice }) => {
           onChange={handleChange}
         />
         <OrderTextField
+          required
           id="outlined-basic"
           label="Email"
           variant="outlined"
@@ -79,6 +102,7 @@ export const OrderForm = ({ cart, price: totalPrice }) => {
           onChange={handleChange}
         />
         <OrderTextField
+          required
           id="outlined-basic"
           label="Phone"
           variant="outlined"
@@ -86,9 +110,11 @@ export const OrderForm = ({ cart, price: totalPrice }) => {
           type="number"
           onChange={handleChange}
         />
-        <button type="submit">Make order</button>
-        <span>Total prise: {totalPrice}</span>
+        <span>Total prise: {totalPrice} uah</span>
+        <OrderBtn type="submit">
+          <span>Make order</span>
+        </OrderBtn>
       </StyledBox>
-    </OrderContainer>
+    </div>
   );
 };

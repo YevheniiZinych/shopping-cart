@@ -22,6 +22,7 @@ export const HomeContainer = styled.div`
 export const StyledLink = styled(NavLink)`
   position: relative;
   display: flex;
+
   justify-content: center;
   align-items: center;
   color: #fff;

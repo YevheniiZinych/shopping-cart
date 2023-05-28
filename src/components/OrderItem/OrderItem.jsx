@@ -6,8 +6,7 @@ import {
   Price,
 } from './OrderItem.styled';
 
-const OrderItem = ({ item, handleRemove, handleChange }) => {
-  console.log(item);
+export const OrderItem = ({ item, handleRemove, handleChange }) => {
   const { _id, img, name, price, amount } = item;
   return (
     <CartItem>
@@ -53,4 +52,3 @@ const OrderItem = ({ item, handleRemove, handleChange }) => {
     </CartItem>
   );
 };
-export default OrderItem;

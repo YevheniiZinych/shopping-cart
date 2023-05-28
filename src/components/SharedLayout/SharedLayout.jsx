@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
+import { Toaster } from 'react-hot-toast';
 import {
   Counter,
   NavContainer,
@@ -44,12 +44,12 @@ const SharedLayout = ({ size }) => {
             </NavList>
           </nav>
         </NavContainer>
+        <Toaster />
       </header>
 
       <Suspense fallback={<div>Page is loading...</div>}>
         <Outlet />
       </Suspense>
-      <ToastContainer />
     </>
   );
 };

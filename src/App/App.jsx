@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { lazy } from 'react';
+import { useJsApiLoader } from '@react-google-maps/api';
+import toast from 'react-hot-toast';
 import { GlobalStyle } from 'components/GlobalStyle';
 import SharedLayout from 'components/SharedLayout/SharedLayout';
 import McDonald from 'components/McDonald/McDonald';
@@ -11,9 +13,18 @@ const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
 const Shop = lazy(() => import('../pages/Shop/Shop'));
 const ShoppingCart = lazy(() => import('../pages/ShoppingCart/ShoppingCart'));
 
+const API_KEY = process.env.REACT_APP_GOOGLE_MAP_API_KEY;
+const libraries = ['places'];
+
 export const App = () => {
   const [cart, setCart] = useState([]);
   const [shops, setShops] = useState([]);
+
+  const { isLoaded } = useJsApiLoader({
+    id: 'google-map-script',
+    googleMapsApiKey: API_KEY,
+    libraries,
+  });
 
   const handleClick = item => {
     let isPresent = false;
@@ -22,6 +33,7 @@ export const App = () => {
     });
 
     if (isPresent) {
+      toast.error('This product was added ');
       return;
     }
 
@@ -75,6 +87,7 @@ export const App = () => {
                 cart={cart}
                 setCart={setCart}
                 handleChange={handleChange}
+                isLoaded={isLoaded}
               />
             }
           />

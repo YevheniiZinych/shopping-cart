@@ -9,10 +9,11 @@ export const StyledBox = styled(Box)(() => ({
   justifyContent: 'center',
 
   width: 400,
-  height: 400,
+  height: 380,
 
   background: 'rgba(255, 255, 255, 0.29)',
-  borderRadius: '16px',
+  borderBottomLeftRadius: '16px',
+  borderBottomRightRadius: '16px',
   boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
   backdropFilter: 'blur(2.6px)',
   border: '1px solid rgba(255, 255, 255, 0.54)',
@@ -20,16 +21,9 @@ export const StyledBox = styled(Box)(() => ({
 
 export const OrderTextField = styled(TextField)(() => ({
   width: 300,
-  color: '#fff',
-
-  background: 'transparent',
-
+  marginBottom: 15,
   '& .MuiFormLabel-root ': {
-    color: '#fff',
-  },
-
-  '& .MuiOutlinedInput-notchedOutline': {
-    borderColor: '#fff',
+    color: 'black',
   },
 
   '& .MuiInputBase-root': {
@@ -40,9 +34,8 @@ export const OrderTextField = styled(TextField)(() => ({
     top: '-7px',
   },
 
-  '& .MuiInputBase-formControl': {
-    color: '#fff',
+  '& .MuiOutlinedInput-notchedOutline': {
+    borderColor: '#fff',
+    borderWidth: 2,
   },
-
-  marginBottom: 15,
 }));

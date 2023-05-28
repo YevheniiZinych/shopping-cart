@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/shopping-cart/static/css/main.7acaea2f.css",
-    "main.js": "/shopping-cart/static/js/main.5653c559.js",
-    "static/js/156.1dd26955.chunk.js": "/shopping-cart/static/js/156.1dd26955.chunk.js",
-    "static/js/436.cdb03b6e.chunk.js": "/shopping-cart/static/js/436.cdb03b6e.chunk.js",
-    "static/js/612.a28004af.chunk.js": "/shopping-cart/static/js/612.a28004af.chunk.js",
+    "main.js": "/shopping-cart/static/js/main.e482230a.js",
+    "static/js/156.f22143ef.chunk.js": "/shopping-cart/static/js/156.f22143ef.chunk.js",
+    "static/js/436.a43b2f23.chunk.js": "/shopping-cart/static/js/436.a43b2f23.chunk.js",
+    "static/js/13.a1c7f075.chunk.js": "/shopping-cart/static/js/13.a1c7f075.chunk.js",
     "static/js/279.6ce121c6.chunk.js": "/shopping-cart/static/js/279.6ce121c6.chunk.js",
-    "static/js/504.7e2573c3.chunk.js": "/shopping-cart/static/js/504.7e2573c3.chunk.js",
+    "static/js/296.1c351415.chunk.js": "/shopping-cart/static/js/296.1c351415.chunk.js",
     "static/media/Flash-Logo.png": "/shopping-cart/static/media/Flash-Logo.086e6d31bba815a3a519.png",
     "static/media/background-img.jpeg": "/shopping-cart/static/media/background-img.4cd9f47d8e3cbd14e6ed.jpeg",
     "index.html": "/shopping-cart/index.html",
     "main.7acaea2f.css.map": "/shopping-cart/static/css/main.7acaea2f.css.map",
-    "main.5653c559.js.map": "/shopping-cart/static/js/main.5653c559.js.map",
-    "156.1dd26955.chunk.js.map": "/shopping-cart/static/js/156.1dd26955.chunk.js.map",
-    "436.cdb03b6e.chunk.js.map": "/shopping-cart/static/js/436.cdb03b6e.chunk.js.map",
-    "612.a28004af.chunk.js.map": "/shopping-cart/static/js/612.a28004af.chunk.js.map",
+    "main.e482230a.js.map": "/shopping-cart/static/js/main.e482230a.js.map",
+    "156.f22143ef.chunk.js.map": "/shopping-cart/static/js/156.f22143ef.chunk.js.map",
+    "436.a43b2f23.chunk.js.map": "/shopping-cart/static/js/436.a43b2f23.chunk.js.map",
+    "13.a1c7f075.chunk.js.map": "/shopping-cart/static/js/13.a1c7f075.chunk.js.map",
     "279.6ce121c6.chunk.js.map": "/shopping-cart/static/js/279.6ce121c6.chunk.js.map",
-    "504.7e2573c3.chunk.js.map": "/shopping-cart/static/js/504.7e2573c3.chunk.js.map"
+    "296.1c351415.chunk.js.map": "/shopping-cart/static/js/296.1c351415.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7acaea2f.css",
-    "static/js/main.5653c559.js"
+    "static/js/main.e482230a.js"
   ]
 }

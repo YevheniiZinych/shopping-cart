@@ -4,11 +4,29 @@ import { StyledBox, OrderTextField } from './OrderForm.mui.styled';
 import { addOrder } from 'apiService/apiService';
 import { OrderBtn } from './OrderForm.styled';
 
+const LOCALSTORAGE_KEY = 'user-order-cred';
+
 export const OrderForm = ({ cart, price: totalPrice, place, setCart }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [address, setAddress] = useState('');
+
+  const order = {
+    cart: {
+      id: cart._id,
+      name: cart.name,
+      price: cart.price,
+      amount: cart.amount,
+    },
+    data: {
+      name,
+      email,
+      phone,
+      address,
+    },
+    totalPrice,
+  };
 
   useEffect(() => {
     setAddress(place);
@@ -40,30 +58,32 @@ export const OrderForm = ({ cart, price: totalPrice, place, setCart }) => {
   const handleOrder = async e => {
     e.preventDefault();
 
-    const order = {
-      cart: {
-        id: cart._id,
-        name: cart.name,
-        price: cart.price,
-        amount: cart.amount,
-      },
-      data: {
-        name,
-        email,
-        phone,
-        address,
-      },
-      totalPrice,
-    };
-
     if (name && email && phone && address) {
       addOrder(order);
       formReset();
+      localStorage.removeItem(LOCALSTORAGE_KEY);
       toast.success('Your order was sent');
     } else {
       toast.error('Complete oll field for send order');
     }
   };
+
+  useEffect(() => {
+    if (name && email && phone && address) {
+      localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(order.data));
+    }
+  }, [address, email, name, order.data, phone]);
+
+  useEffect(() => {
+    const items = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));
+    if (items) {
+      const { name, email, phone, address } = items;
+      setName(name);
+      setEmail(email);
+      setPhone(phone);
+      setAddress(address);
+    }
+  }, []);
 
   return (
     <div>
@@ -87,6 +107,7 @@ export const OrderForm = ({ cart, price: totalPrice, place, setCart }) => {
           required
           id="outlined-basic"
           label="Name"
+          value={name}
           variant="outlined"
           name="name"
           type="text"
@@ -96,6 +117,7 @@ export const OrderForm = ({ cart, price: totalPrice, place, setCart }) => {
           required
           id="outlined-basic"
           label="Email"
+          value={email}
           variant="outlined"
           name="email"
           type="text"
@@ -105,6 +127,7 @@ export const OrderForm = ({ cart, price: totalPrice, place, setCart }) => {
           required
           id="outlined-basic"
           label="Phone"
+          value={phone}
           variant="outlined"
           name="phone"
           type="number"

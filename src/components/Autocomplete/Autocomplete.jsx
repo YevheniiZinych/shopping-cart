@@ -19,13 +19,13 @@ export const Autocomplete = ({ isLoaded, onPlaceSelect, onPlace }) => {
     debounce: 300,
   });
 
-  const ref = useOnclickOutside(() => {
-    clearSuggestions();
-  });
-
   const handleInput = e => {
     setValue(e.target.value);
   };
+
+  const ref = useOnclickOutside(() => {
+    clearSuggestions();
+  });
 
   const handleSelect =
     ({ description }) =>

@@ -1,5 +1,2 @@
-static_headers:
-  - path: 'shopping-cart/static/css/*.css'
-    headers:
-      - key: 'Content-Type'
-        value: 'text/css'
+static_build_command: 'npm run build'
+static_publish_path: 'build'

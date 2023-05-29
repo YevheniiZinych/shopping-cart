@@ -19,9 +19,9 @@ jobs:
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.0
-        env:
+
+        with:
           REACT_APP_GOOGLE_MAP_API_KEY:
             ${{ secrets.REACT_APP_GOOGLE_MAP_API_KEY }}
-        with:
           branch: gh-pages
           folder: build

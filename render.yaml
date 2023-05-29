@@ -1,0 +1,5 @@
+static_headers:
+  - path: 'shopping-cart/static/css/*.css'
+    headers:
+      - key: 'Content-Type'
+        value: 'text/css'

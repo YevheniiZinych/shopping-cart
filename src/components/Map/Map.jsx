@@ -12,8 +12,6 @@ export const MODES = {
   SET_MARKER: 1,
 };
 
-const API_KEY = process.env.REACT_APP_GOOGLE_MAP_API_KEY;
-
 export const Map = ({ center, isLoaded, onPlaceSelect, onPlace, setPlace }) => {
   const [screenSize, setScreenSize] = useState({
     width: window.innerWidth,
@@ -33,7 +31,7 @@ export const Map = ({ center, isLoaded, onPlaceSelect, onPlace, setPlace }) => {
     } else {
       const containerStyle = {
         width: '500px',
-        height: '400px',
+        height: '350px',
       };
       return containerStyle;
     }
@@ -54,7 +52,7 @@ export const Map = ({ center, isLoaded, onPlaceSelect, onPlace, setPlace }) => {
     };
   }, []);
 
-  Geocode.setApiKey(API_KEY);
+  Geocode.setApiKey('AIzaSyAX44t8LZuD8-eE5D9p_ITQwMjS0JF_2sA');
   Geocode.setLanguage('en');
 
   const onLoad = useCallback(function callback(map) {
@@ -67,6 +65,7 @@ export const Map = ({ center, isLoaded, onPlaceSelect, onPlace, setPlace }) => {
 
   const onMarkerAdd = useCallback(
     coordinates => {
+      console.log(coordinates);
       Geocode.fromLatLng(`${coordinates.lat}`, `${coordinates.lng}`).then(
         response => {
           const address = response.results[0].formatted_address;

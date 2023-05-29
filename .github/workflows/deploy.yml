@@ -1,9 +1,16 @@
 name: Build and deploy to GitHub Pages
-
+env:
+        REACT_APP_GOOGLE_MAP_API_KEY:
+          ${{ secrets.REACT_APP_GOOGLE_MAP_API_KEY }}
 on:
   push:
     branches: [main]
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> f40ce9b28a34798bd373394a050a9f82e99a34fd
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest

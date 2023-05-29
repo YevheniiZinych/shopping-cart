@@ -8,15 +8,29 @@ export const ShopContainer = styled.div`
   padding: 0 10;
   height: calc(100vh - 50px);
   margin: 0 auto;
+  @media (max-width: 769px) {
+    flex-direction: column;
+
+    overflow: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    scrollbar-width: none;
+  }
 `;
 
 export const Container = styled.div`
   display: flex;
-  position: relative;
+
   background-image: url(${img});
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+
+  @media (max-width: 769px) {
+  }
 `;
 
 export const ShopList = styled.ul`
@@ -37,6 +51,15 @@ export const ShopList = styled.ul`
   & li {
     margin-left: 10px;
     margin-top: 20px;
+  }
+
+  @media (max-width: 769px) {
+    height: 150px;
+    width: 100vw;
+    margin-right: 0;
+  }
+  & li {
+    margin-top: 8px;
   }
 `;
 

@@ -58,18 +58,18 @@ export const OrderForm = ({ cart, price: totalPrice, place, setCart }) => {
   const handleOrder = async e => {
     e.preventDefault();
 
-    if (name && email && phone && address) {
+    if (name && email && phone && address && cart.length !== 0) {
       addOrder(order);
       formReset();
       localStorage.removeItem(LOCALSTORAGE_KEY);
       toast.success('Your order was sent');
     } else {
-      toast.error('Complete oll field for send order');
+      toast.error('Complete oll field for send order and add food to order');
     }
   };
 
   useEffect(() => {
-    if (name && email && phone && address) {
+    if (name || email || phone || address) {
       localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(order.data));
     }
   }, [address, email, name, order.data, phone]);

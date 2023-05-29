@@ -4,6 +4,10 @@ import img from '../../img/background-img.jpeg';
 
 export const Title = styled.h1`
   color: rgb(246, 243, 21);
+
+  @media (max-width: 769px) {
+    font-size: 25px;
+  }
 `;
 
 export const HomeContainer = styled.div`

@@ -6,6 +6,16 @@ export const Container = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+
+  @media (max-width: 769px) {
+    overflow: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    scrollbar-width: none;
+  }
 `;
 
 export const ShoppingContainer = styled.div`
@@ -17,12 +27,22 @@ export const ShoppingContainer = styled.div`
 
 export const Wrapper = styled.div`
   display: flex;
+
+  @media (max-width: 769px) {
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 export const ShopInner = styled.div`
-  height: 600px;
+  height: 900px;
   width: 100%;
   margin: 10px;
+
+  @media (max-width: 769px) {
+    height: 300px;
+  }
 
   overflow-y: hidden;
   overflow-y: scroll;

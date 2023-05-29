@@ -8,7 +8,7 @@ export const StyledBox = styled(Box)(() => ({
   alignItems: 'center',
   justifyContent: 'center',
 
-  width: 400,
+  maxWidth: 500,
   height: 380,
 
   background: 'rgba(255, 255, 255, 0.29)',

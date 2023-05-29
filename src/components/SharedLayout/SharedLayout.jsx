@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
@@ -10,12 +11,19 @@ import {
   StyledLink,
 } from 'components/SharedLayout/SharedLayout.styled';
 import logo from '../../img/Flash-Logo.png';
-
+import { BurgerMenu } from 'components/BurgerMenu/BurgerMenu';
 const SharedLayout = ({ size }) => {
+  const [open, setOpen] = useState(false);
+
   return (
-    <>
+    <div
+      style={{
+        overflow: 'hidden',
+      }}
+    >
       <header>
         <NavContainer>
+          <BurgerMenu setOpen={setOpen} open={open} />
           <LogoWrapper>
             <img
               src={logo}
@@ -27,17 +35,23 @@ const SharedLayout = ({ size }) => {
             <span>FleshDelivery</span>
           </LogoWrapper>
           <nav>
-            <NavList>
+            <NavList open={open}>
               <li>
-                <StyledLink to="/">HOME</StyledLink>
+                <StyledLink onClick={() => setOpen(!open)} to="/">
+                  HOME
+                </StyledLink>
               </li>
               <li>
-                <StyledLink to="/shop">SHOP</StyledLink>
+                <StyledLink onClick={() => setOpen(!open)} to="/shop">
+                  SHOP
+                </StyledLink>
               </li>
 
               <li>
                 <CartWrapper>
-                  <StyledLink to="/cart">SHOPPING CART</StyledLink>
+                  <StyledLink onClick={() => setOpen(!open)} to="/cart">
+                    SHOPPING CART
+                  </StyledLink>
                   <Counter>{size}</Counter>
                 </CartWrapper>
               </li>
@@ -50,7 +64,7 @@ const SharedLayout = ({ size }) => {
       <Suspense fallback={<div>Page is loading...</div>}>
         <Outlet />
       </Suspense>
-    </>
+    </div>
   );
 };
 

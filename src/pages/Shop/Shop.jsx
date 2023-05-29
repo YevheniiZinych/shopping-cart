@@ -23,11 +23,11 @@ const Shop = ({ setShops, shops }) => {
               );
             })}
           </ShopList>
+          <Suspense fallback={<div>Page is loading...</div>}>
+            <Outlet />
+          </Suspense>
         </ShopContainer>
       </main>
-      <Suspense fallback={<div>Page is loading...</div>}>
-        <Outlet />
-      </Suspense>
     </Container>
   );
 };

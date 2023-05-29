@@ -15,6 +15,7 @@ export const Counter = styled.span`
 `;
 
 export const NavContainer = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
   height: 50px;
@@ -29,6 +30,26 @@ export const NavList = styled.ul`
   display: flex;
   align-items: center;
   gap: 20px;
+  transition: all 0.3s linear;
+
+  @media (max-width: 769px) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    flex-direction: column;
+    z-index: 15;
+    height: 100vh;
+    width: 100vw;
+
+    background: rgba(255, 255, 255, 0.22);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(3px);
+    transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(120%)')};
+
+    & li:first-child {
+      margin-top: 50px;
+    }
+  }
 `;
 
 export const LogoWrapper = styled.div`

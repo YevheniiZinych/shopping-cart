@@ -1,15 +1,11 @@
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useRef, useState, useEffect } from 'react';
 import { GoogleMap } from '@react-google-maps/api';
 import Geocode from 'react-geocode';
 import { Marker } from 'components/Marker/Marker';
 import { Autocomplete } from 'components/Autocomplete/Autocomplete';
 import { CurrentLocationMarker } from 'components/CurrentLocationMarker/CurrentLocationMarker';
 import { defaultOptions } from 'settings/mapOptions';
-
-const containerStyle = {
-  width: '400px',
-  height: '300px',
-};
+import { Container, MapBtn, MapBtnWrapper } from './Map.styled';
 
 export const MODES = {
   MOVE: 0,
@@ -19,9 +15,44 @@ export const MODES = {
 const API_KEY = process.env.REACT_APP_GOOGLE_MAP_API_KEY;
 
 export const Map = ({ center, isLoaded, onPlaceSelect, onPlace, setPlace }) => {
-  const mapRef = useRef(undefined);
+  const [screenSize, setScreenSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
   const [mode, setMode] = useState(MODES.MOVE);
   const [markers, setMarkers] = useState([]);
+  const mapRef = useRef(undefined);
+
+  const mediaSizeMap = () => {
+    if (screenSize.width < 769) {
+      const containerStyle = {
+        width: '330px',
+        height: '250px',
+      };
+      return containerStyle;
+    } else {
+      const containerStyle = {
+        width: '500px',
+        height: '400px',
+      };
+      return containerStyle;
+    }
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   Geocode.setApiKey(API_KEY);
   Geocode.setLanguage('en');
@@ -77,15 +108,10 @@ export const Map = ({ center, isLoaded, onPlaceSelect, onPlace, setPlace }) => {
   };
 
   return (
-    <div
-      style={{
-        position: 'relative',
-      }}
-    >
+    <Container>
       <div
         style={{
           display: 'flex',
-          position: 'absolute',
           zIndex: 10,
         }}
       >
@@ -94,12 +120,14 @@ export const Map = ({ center, isLoaded, onPlaceSelect, onPlace, setPlace }) => {
           onPlaceSelect={onPlaceSelect}
           onPlace={onPlace}
         />
-        <button onClick={toggleMode}>Set marker</button>
-        <button onClick={removeMarker}>Remove marker</button>
+        <MapBtnWrapper>
+          <MapBtn onClick={toggleMode}>Set marker</MapBtn>
+          <MapBtn onClick={removeMarker}>Remove marker</MapBtn>
+        </MapBtnWrapper>
       </div>
       <GoogleMap
         onClick={onChangeLoc}
-        mapContainerStyle={containerStyle}
+        mapContainerStyle={mediaSizeMap()}
         center={center}
         zoom={10}
         onLoad={onLoad}
@@ -111,6 +139,6 @@ export const Map = ({ center, isLoaded, onPlaceSelect, onPlace, setPlace }) => {
         })}
         <CurrentLocationMarker position={center} />
       </GoogleMap>
-    </div>
+    </Container>
   );
 };

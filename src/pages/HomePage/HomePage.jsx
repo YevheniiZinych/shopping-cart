@@ -5,11 +5,9 @@ const HomePage = () => {
     <main>
       <HomeContainer>
         <Title>Welcome to the FLASH delivery</Title>
-        <div>
-          <StyledLink to="shop">
-            <span>Lets start</span>
-          </StyledLink>
-        </div>
+        <StyledLink to="shop">
+          <span>Lets start</span>
+        </StyledLink>
       </HomeContainer>
     </main>
   );

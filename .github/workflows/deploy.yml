@@ -1,5 +1,9 @@
 name: Build and deploy to GitHub Pages
 
+env:
+  ## Sets environment variable
+  REACT_APP_GOOGLE_MAP_API_KEY: AIzaSyAX44t8LZuD8-eE5D9p_ITQwMjS0JF_2sA
+
 on:
   push:
     branches: [main]

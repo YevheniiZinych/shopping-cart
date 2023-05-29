@@ -13,7 +13,6 @@ const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
 const Shop = lazy(() => import('../pages/Shop/Shop'));
 const ShoppingCart = lazy(() => import('../pages/ShoppingCart/ShoppingCart'));
 
-const API_KEY = process.env.REACT_APP_GOOGLE_MAP_API_KEY;
 const libraries = ['places'];
 
 export const App = () => {
@@ -22,7 +21,7 @@ export const App = () => {
 
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: API_KEY,
+    googleMapsApiKey: 'AIzaSyAX44t8LZuD8-eE5D9p_ITQwMjS0JF_2sA',
     libraries,
   });
 

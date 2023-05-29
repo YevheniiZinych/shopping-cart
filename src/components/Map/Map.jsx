@@ -31,7 +31,7 @@ export const Map = ({ center, isLoaded, onPlaceSelect, onPlace, setPlace }) => {
     } else {
       const containerStyle = {
         width: '500px',
-        height: '350px',
+        height: '255px',
       };
       return containerStyle;
     }

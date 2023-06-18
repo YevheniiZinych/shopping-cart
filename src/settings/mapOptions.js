@@ -7,7 +7,7 @@ export const defaultOptions = {
   rotateControl: false,
   clickableIcons: false,
   KeyboardShortcuts: false,
-  scrollwheel: false,
+  scrollwheel: true,
   disableDoubleClickZoom: true,
   fullscreenControl: false,
 };

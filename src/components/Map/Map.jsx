@@ -1,6 +1,6 @@
 import { useCallback, useRef, useState, useEffect } from 'react';
 import { GoogleMap } from '@react-google-maps/api';
-import Geocode from 'react-geocode';
+import axios from 'axios';
 import { Marker } from 'components/Marker/Marker';
 import { Autocomplete } from 'components/Autocomplete/Autocomplete';
 import { CurrentLocationMarker } from 'components/CurrentLocationMarker/CurrentLocationMarker';
@@ -12,7 +12,14 @@ export const MODES = {
   SET_MARKER: 1,
 };
 
-export const Map = ({ center, isLoaded, onPlaceSelect, onPlace, setPlace }) => {
+export const Map = ({
+  center,
+  isLoaded,
+  onPlaceSelect,
+  onPlace,
+  setPlace,
+  mapKey,
+}) => {
   const [screenSize, setScreenSize] = useState({
     width: window.innerWidth,
     height: window.innerHeight,
@@ -52,9 +59,6 @@ export const Map = ({ center, isLoaded, onPlaceSelect, onPlace, setPlace }) => {
     };
   }, []);
 
-  Geocode.setApiKey('AIzaSyAX44t8LZuD8-eE5D9p_ITQwMjS0JF_2sA');
-  Geocode.setLanguage('en');
-
   const onLoad = useCallback(function callback(map) {
     mapRef.current = map;
   }, []);
@@ -64,21 +68,18 @@ export const Map = ({ center, isLoaded, onPlaceSelect, onPlace, setPlace }) => {
   }, []);
 
   const onMarkerAdd = useCallback(
-    coordinates => {
-      console.log(coordinates);
-      Geocode.fromLatLng(`${coordinates.lat}`, `${coordinates.lng}`).then(
-        response => {
-          const address = response.results[0].formatted_address;
-          setPlace(address);
-        },
-        error => {
-          console.error(error);
-        }
+    async coor => {
+      const {
+        data: { results },
+      } = await axios.get(
+        `https://maps.googleapis.com/maps/api/geocode/json?latlng=${coor.lat},${coor.lng}&key=${mapKey}`
       );
 
-      setMarkers([coordinates]);
+      setPlace(results[0].formatted_address);
+
+      setMarkers([coor]);
     },
-    [setPlace]
+    [mapKey, setPlace]
   );
 
   const onChangeLoc = loc => {
@@ -133,9 +134,10 @@ export const Map = ({ center, isLoaded, onPlaceSelect, onPlace, setPlace }) => {
         onUnmount={onUnmount}
         options={defaultOptions}
       >
-        {markers?.map(pos => {
-          return <Marker key={pos.lng} position={pos} />;
-        })}
+        {markers.length > 0 &&
+          markers?.map(pos => {
+            return <Marker key={pos.lng} position={pos} />;
+          })}
         <CurrentLocationMarker position={center} />
       </GoogleMap>
     </Container>

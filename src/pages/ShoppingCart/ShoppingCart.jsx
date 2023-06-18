@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useJsApiLoader } from '@react-google-maps/api';
 import { OrderItem } from 'components/OrderItem/OrderItem';
 import {
   Container,
@@ -12,11 +13,18 @@ import { Map } from '..//../components/Map/Map';
 import { getBrowserLocation } from '../../utils/geo';
 
 const defaultLocation = { lat: 50.450001, lng: 30.523333 };
+const libraries = ['places'];
 
-const ShoppingCart = ({ cart, setCart, handleChange, isLoaded }) => {
+const ShoppingCart = ({ cart, setCart, handleChange, mapKey }) => {
   const [price, setPrice] = useState(0);
   const [center, setCenter] = useState(defaultLocation);
   const [place, setPlace] = useState('');
+
+  const { isLoaded } = useJsApiLoader({
+    id: 'google-map-script',
+    googleMapsApiKey: mapKey,
+    libraries,
+  });
 
   const onPlaceSelect = coordinates => {
     setCenter(coordinates);
@@ -63,6 +71,7 @@ const ShoppingCart = ({ cart, setCart, handleChange, isLoaded }) => {
                   onPlaceSelect={onPlaceSelect}
                   onPlace={setPlace}
                   setPlace={setPlace}
+                  mapKey={mapKey}
                 />
               ) : (
                 <h2>Loading...</h2>

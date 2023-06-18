@@ -1,29 +1,22 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { lazy } from 'react';
-import { useJsApiLoader } from '@react-google-maps/api';
 import toast from 'react-hot-toast';
 import { GlobalStyle } from 'components/GlobalStyle';
 import SharedLayout from 'components/SharedLayout/SharedLayout';
 import McDonald from 'components/McDonald/McDonald';
 import KFC from 'components/KFC/KFC';
 import Mafia from 'components/Mafia/Mafia';
+import { getMap } from 'apiService/apiService';
 
 const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
 const Shop = lazy(() => import('../pages/Shop/Shop'));
 const ShoppingCart = lazy(() => import('../pages/ShoppingCart/ShoppingCart'));
 
-const libraries = ['places'];
-
 export const App = () => {
   const [cart, setCart] = useState([]);
   const [shops, setShops] = useState([]);
-
-  const { isLoaded } = useJsApiLoader({
-    id: 'google-map-script',
-    googleMapsApiKey: 'AIzaSyAX44t8LZuD8-eE5D9p_ITQwMjS0JF_2sA',
-    libraries,
-  });
+  const [key, setKey] = useState('');
 
   const handleClick = item => {
     let isPresent = false;
@@ -53,6 +46,21 @@ export const App = () => {
 
     setCart([...newCard]);
   };
+
+  useEffect(() => {
+    const getKey = async () => {
+      try {
+        const {
+          data: { key },
+        } = await getMap();
+        setKey(key);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getKey();
+  }, []);
 
   return (
     <div>
@@ -86,7 +94,8 @@ export const App = () => {
                 cart={cart}
                 setCart={setCart}
                 handleChange={handleChange}
-                isLoaded={isLoaded}
+                // isLoaded={isLoaded}
+                mapKey={key}
               />
             }
           />

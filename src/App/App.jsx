@@ -16,7 +16,7 @@ const ShoppingCart = lazy(() => import('../pages/ShoppingCart/ShoppingCart'));
 export const App = () => {
   const [cart, setCart] = useState([]);
   const [shops, setShops] = useState([]);
-  const [key, setKey] = useState('');
+  const [mapKey, setMapKey] = useState('');
 
   const handleClick = item => {
     let isPresent = false;
@@ -53,7 +53,7 @@ export const App = () => {
         const {
           data: { key },
         } = await getMap();
-        setKey(key);
+        setMapKey(key);
       } catch (error) {
         console.log(error);
       }
@@ -94,8 +94,7 @@ export const App = () => {
                 cart={cart}
                 setCart={setCart}
                 handleChange={handleChange}
-                // isLoaded={isLoaded}
-                mapKey={key}
+                mapKey={mapKey}
               />
             }
           />

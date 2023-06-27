@@ -74,8 +74,9 @@ export const Map = ({
       } = await axios.get(
         `https://maps.googleapis.com/maps/api/geocode/json?latlng=${coor.lat},${coor.lng}&key=${mapKey}`
       );
+      console.log(results);
 
-      setPlace(results[0].formatted_address);
+      setPlace(results[0]?.formatted_address);
 
       setMarkers([coor]);
     },

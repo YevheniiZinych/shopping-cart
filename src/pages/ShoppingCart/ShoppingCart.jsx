@@ -19,10 +19,12 @@ const ShoppingCart = ({ cart, setCart, handleChange, mapKey }) => {
   const [price, setPrice] = useState(0);
   const [center, setCenter] = useState(defaultLocation);
   const [place, setPlace] = useState('');
-  console.log(mapKey);
+
+  console.log(place);
+
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: mapKey,
+    googleMapsApiKey: 'AIzaSyDVcPGpX60l - Dm_wTw3JhgtR7zSx6MDuGY',
     libraries,
   });
 

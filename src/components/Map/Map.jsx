@@ -1,5 +1,5 @@
 import { useCallback, useRef, useState, useEffect } from 'react';
-import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import { GoogleMap } from '@react-google-maps/api';
 import axios from 'axios';
 import { Marker } from 'components/Marker/Marker';
 import { Autocomplete } from 'components/Autocomplete/Autocomplete';
